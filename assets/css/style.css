@@ -17,6 +17,11 @@
     display: none;
   }
 
+  .card_text:not(.active) {
+    display: none;
+  }
+
+  
 
   .slider .controls {
     position: absolute;

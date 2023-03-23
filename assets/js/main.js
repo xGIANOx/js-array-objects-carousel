@@ -38,8 +38,8 @@ images.forEach((image, i) => {
 
   
   const cardMarkup = `<img src="./assets/${thisImageUrl}" alt="" class="img-fluid ${i === activeImage ? 'active' : ''}">
-  <div class="card-body ${image === activeText ? 'active' : ''}">
-    <h3 class="active">
+  <div class="card_text ${i === activeText ? 'active' : ''}">
+    <h3>
       ${thisCard.title} 
     </h3>
     <p>
@@ -51,6 +51,8 @@ images.forEach((image, i) => {
 });
 
 const imageElementsList = document.querySelectorAll('.slider > .images > img')
+const textElementsList = document.querySelectorAll('.card_text')
+
 
 
 // eventlistener al prev btn
@@ -61,6 +63,10 @@ console.log('prev');
   console.log(thisImage);
   thisImage.classList.remove('active')
 
+  const thisText = textElementsList[activeText]
+  console.log(thisText);
+  thisText.classList.remove('active')
+
   
   if(activeImage === 0) {
     activeImage = imageElementsList.length - 1
@@ -68,10 +74,20 @@ console.log('prev');
     activeImage--
   }
 
+  if(activeText === 0) {
+    activeText = textElementsList.length - 1
+  } else {
+    activeText--
+  }
+
   // immagine successiva
   const nextImage = imageElementsList[activeImage]
   console.log(nextImage);
   nextImage.classList.add('active')
+
+  const nextText = textElementsList[activeText]
+  console.log(nextText);
+  nextText.classList.add('active')
 
 
 })
@@ -79,9 +95,15 @@ console.log('prev');
 
 nextButtonElement.addEventListener('click', function () {
   console.log('next');
+
+  
   const thisImage = imageElementsList[activeImage]
   console.log(thisImage);
   thisImage.classList.remove('active')
+
+  const thisText = textElementsList[activeText]
+  console.log(thisText);
+  thisText.classList.remove('active')
 
   if(activeImage === imageElementsList.length -1) {
     activeImage = 0
@@ -89,8 +111,18 @@ nextButtonElement.addEventListener('click', function () {
     activeImage++
   }
 
+  if(activeText === 0) {
+    activeText = textElementsList.length - 1
+  } else {
+    activeText++
+  }
+
   // immagine successiva
   const nextImage = imageElementsList[activeImage]
   nextImage.classList.add('active')
+
+  const nextText = textElementsList[activeText]
+  console.log(nextText);
+  nextText.classList.add('active')
 
 })
