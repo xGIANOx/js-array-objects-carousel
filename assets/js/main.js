@@ -29,23 +29,23 @@ const images = [
 
 
 let activeImage = 0
+let activeText = 0
 
 
 images.forEach((image, i) => {
   const thisCard = images[i];
   const thisImageUrl = images[i].image;
-  const thisTitle = images[i].title
-  const cardMarkup = `<img src="./assets/${thisImageUrl}" alt="" class="img-fluid ${image[i] === activeImage ? 'active' : ''}">
-  <div class="card-body">
-            <h3 class="active">
-                ${thisCard.title} 
-            </h3>
-            <p>
-                ${thisCard.text}
-            </p>
-        </div>`
-        console.log(image);
-  console.log(thisTitle);
+
+  
+  const cardMarkup = `<img src="./assets/${thisImageUrl}" alt="" class="img-fluid ${i === activeImage ? 'active' : ''}">
+  <div class="card-body ${image === activeText ? 'active' : ''}">
+    <h3 class="active">
+      ${thisCard.title} 
+    </h3>
+    <p>
+      ${thisCard.text}
+    </p>
+  </div>`
   console.log(cardMarkup);
   sliderImagesElement.insertAdjacentHTML('beforeend', cardMarkup)
 });
