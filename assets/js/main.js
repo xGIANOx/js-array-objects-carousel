@@ -111,11 +111,13 @@ nextButtonElement.addEventListener('click', function () {
     activeImage++
   }
 
-  if(activeText === 0) {
-    activeText = textElementsList.length - 1
+  if(activeText === textElementsList.length -1) {
+    activeText = 0
   } else {
     activeText++
   }
+
+  
 
   // immagine successiva
   const nextImage = imageElementsList[activeImage]
